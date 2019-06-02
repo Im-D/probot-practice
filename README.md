@@ -2,6 +2,7 @@
 
 - [probot 공식 사이트](https://probot.github.io/)
 - [probot 개발 Docs](https://probot.github.io/docs/)
+- [참고 사이트](https://blog.outsider.ne.kr/1390)
 
 > 현재는 모든 사람들이 바로 개발 및 테스트를 하기 위해서 `.env` 파일을 추가했습니다. 실제 개발에서는 올리지 않을 예정
 

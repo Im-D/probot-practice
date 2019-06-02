@@ -9,6 +9,9 @@ module.exports = app => {
   app.on('issues.opened', async context => {
     app.log('hello');
     const issueComment = context.issue({ body: 'Thanks for opening this issue!' })
+    context.github.issues.createComment(issueComment)
+    context.github.issues.createComment(issueComment)
+    context.github.issues.createComment(issueComment)
     return context.github.issues.createComment(issueComment)
   })
 
