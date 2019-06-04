@@ -1,46 +1,52 @@
 const nock = require('nock')
-// Requiring our app implementation
-const myProbotApp = require('..')
-const { Probot } = require('probot')
-// Requiring our fixtures
-const payload = require('./fixtures/issues.opened')
-const issueCreatedBody = { body: 'Thanks for opening this issue!' }
+const markdownify = require('..')
+const {Probot} = require('probot')
+const payload = require('./fixtures/pull_request.opened.json')
+const prFiles = require('./fixtures/prFiles.json')
+const payloadFail = require('./fixtures/payloadFail.json')
+const prFilesFail = require('./fixtures/prFilesFail.json')
 
 nock.disableNetConnect()
 
-describe('My Probot app', () => {
+describe('markdownify', () => {
   let probot
 
   beforeEach(() => {
     probot = new Probot({})
-    // Load our app into probot
-    const app = probot.load(myProbotApp)
+    const app = probot.load(markdownify)
 
     // just return a test token
     app.app = () => 'test'
   })
 
-  test('creates a comment when an issue is opened', async () => {
-    // Test that we correctly return a test token
+  test('edits the pull request when markdown files are editted', async () => {
     nock('https://api.github.com')
-      .post('/app/installations/2/access_tokens')
-      .reply(200, { token: 'test' })
+        .post('/app/installations/321696/access_tokens')
+        .reply(200, {token: 'test'})
 
-    // Test that a comment is posted
     nock('https://api.github.com')
-      .post('/repos/hiimbex/testing-things/issues/1/comments', (body) => {
-        expect(body).toMatchObject(issueCreatedBody)
-        return true
-      })
-      .reply(200)
+        .get('/repos/hiimbex/testing-things/pulls/112/files')
+        .reply(200, prFiles.data)
 
-    // Receive a webhook event
-    await probot.receive({ name: 'issues', payload })
+    nock('https://api.github.com')
+        .patch('/repos/hiimbex/testing-things/pulls/112', (body) => {
+          expect(body).toMatchObject({body: '\n\n-----\n[View rendered README.md](https://github.com/hiimbex/testing-things/blob/hiimbex-patch-41/README.md)'})
+          return true
+        })
+        .reply(200)
+
+    await probot.receive({name: 'pull_request', payload})
+  })
+
+  test('does not edit the pull request when no markdown files are editted', async () => {
+    nock('https://api.github.com')
+        .post('/app/installations/321696/access_tokens')
+        .reply(200, {token: 'test'})
+
+    nock('https://api.github.com')
+        .get('/repos/hiimbex/testing-things/pulls/114/files')
+        .reply(200, prFilesFail.data)
+
+    await probot.receive({name: 'pull_request', payload: payloadFail})
   })
 })
-
-// For more information about testing with Jest see:
-// https://facebook.github.io/jest/
-
-// For more information about testing with Nock see:
-// https://github.com/nock/nock
