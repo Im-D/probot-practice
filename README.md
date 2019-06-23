@@ -1,6 +1,7 @@
 # Probot-practise
 
 test
+pr test
 
 - [probot 공식 사이트](https://probot.github.io/)
 - [probot 개발 Docs](https://probot.github.io/docs/)
