@@ -1,9 +1,9 @@
-workflow "Check for TODOs in Pull Requests" {
+workflow "New workflow" {
   on = "pull_request"
-  resolves = "PR-TEST"
+  resolves = ["Im-D/pr-supporter"]
 }
 
-action "PR-TEST" {
+action "Im-D/pr-supporter" {
   uses = "Im-D/pr-supporter@master"
   secrets = ["GITHUB_TOKEN"]
 }
