@@ -1,9 +1,14 @@
 workflow "Check for TODOs in Pull Requests" {
-  resolves = "PR-TEST"
   on = "pull_request"
+  resolves = "TODO"
 }
 
-action "PR-TEST" {
-  uses = "Im-D/pr-supporter@master"
+workflow "Check for TODOs on Push" {
+  on = "push"
+  resolves = "TODO"
+}
+
+action "TODO" {
+  uses = "jasonetco/todo@master"
   secrets = ["GITHUB_TOKEN"]
 }
