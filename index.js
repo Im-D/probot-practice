@@ -10,7 +10,7 @@ module.exports = app => {
     app.log('open')
     const issueComment = context.issue({ body: 'issue open TEST' })
     return context.github.issues.createComment(issueComment)
-  })
+  })  
 
   app.on('issues.edited', async context => {
     app.log('edited');
