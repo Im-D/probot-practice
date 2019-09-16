@@ -1,6 +1,6 @@
 workflow "Check for TODOs in Pull Requests" {
-  on = "pull_request"
   resolves = "PR-TEST"
+  on = "pull_request"
 }
 
 action "PR-TEST" {
