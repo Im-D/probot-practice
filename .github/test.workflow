@@ -9,6 +9,6 @@ workflow "Check for TODOs on Push" {
 }
 
 action "TODO" {
-  uses = "jasonetco/todo@master"
+  uses = "Im-D/pr-supporter@master"
   secrets = ["GITHUB_TOKEN"]
 }
