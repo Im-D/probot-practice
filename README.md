@@ -1,5 +1,6 @@
 # Probot-practise
 
+- test를 해봅시다!
 - test
 - [probot 공식 사이트](https://probot.github.io/)
 - [probot 개발 Docs](https://probot.github.io/docs/)
