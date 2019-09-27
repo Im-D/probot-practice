@@ -8,4 +8,4 @@ jobs:
     - name: test
       uses: Im-D/pr-supporter@action
       with:
-        myToken: ${{ secrets.GITHUB_TOKEN }
+        myToken: ${{ secrets.GITHUB_TOKEN }}
