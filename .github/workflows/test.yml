@@ -7,3 +7,5 @@ jobs:
     steps:
     - name: test
       uses: Im-D/pr-supporter@action
+      with:
+        myToken: ${{ secrets.GITHUB_TOKEN }
