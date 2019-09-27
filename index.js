@@ -13,23 +13,23 @@ module.exports = app => {
   })
 
   app.on('issues.edited', async context => {
-    app.log('edited');
+    app.log('edited')
     const issueComment = context.issue({ body: 'issue edited TEST' })
     return context.github.issues.createComment(issueComment)
   })
 
   app.on('pull_request.opened', async context => {
     const filesChanged = await context.github.pullRequests.getFiles(context.issue())
-    console.log("filesChanged", filesChanged)
+    console.log('filesChanged', filesChanged)
     const results = filesChanged.data.filter(file => file.filename.includes('.md'))
-    console.log("results", `${context.payload.pull_request.head.repo.html_url}/blob/${context.payload.pull_request.head.ref}`)
+    console.log('results', `${context.payload.pull_request.head.repo.html_url}/blob/${context.payload.pull_request.head.ref}`)
     if (results && results.length > 0) {
       // make URLs
       let urls = ''
       await results.forEach(async (result) => {
         urls += `[${result.filename}](${context.payload.pull_request.head.repo.html_url}/blob/${context.payload.pull_request.head.ref}/${result.filename})`
       })
-      await context.github.pullRequests.update(context.issue({body: `${context.payload.pull_request.body}\n${urls}`}))
+      await context.github.pullRequests.update(context.issue({ body: `${context.payload.pull_request.body}\n${urls}` }))
     }
   })
 
