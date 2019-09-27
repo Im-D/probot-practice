@@ -1,0 +1,11 @@
+name: "test-pr-supporter"
+on: [pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: test
+      uses: Im-D/pr-supporter@action
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
