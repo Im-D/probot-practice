@@ -1,8 +1,7 @@
 name: "test-pr-supporter"
 on: 
   pull_request:
-    types: [opened, edited], 
-      
+    types: [opened, edited]
 
 jobs:
   test:
