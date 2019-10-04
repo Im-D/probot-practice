@@ -9,6 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: test
-      uses: Im-Bot/packages/pr-supporter@master
+      uses: Im-D/Im-Bot/packages/pr-supporter@master
       with:
         myToken: ${{ secrets.GITHUB_TOKEN }}
