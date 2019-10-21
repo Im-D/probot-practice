@@ -68,3 +68,6 @@ WEBHOOK_PROXY_URL : 위에서 설명한 프록시 서버의 주소를 입력해�
 ## License
 
 [ISC](../LICENSE) © 2019 Im-D <seonhyung.jo@gmail.com>
+
+
+## History

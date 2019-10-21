@@ -2,18 +2,13 @@ name: "test-pr-supporter"
 on: 
   pull_request:
     types: [opened]
-      
-
+    
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
     - name: test
-      uses: Im-D/Im-Bot/packages/pr-supporter@master
+      uses: Im-D/Im-Bot/packages/update-readme@update-readme
       with:
         myToken: ${{ secrets.GITHUB_TOKEN }}
-        
-    - name: pr-reviewer-test
-      uses: Im-D/Im-Bot/packages/pr-reviewer@pr-reviewer-dev
-      with:
-        myToken: ${{ secrets.GITHUB_TOKEN }}
+
