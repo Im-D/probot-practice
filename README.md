@@ -61,7 +61,7 @@ WEBHOOK_PROXY_URL=https://smee.io/n9bfnwV1JBvcyZU
 APP_ID : new GitHub App으로 만든 앱의 고유 번호를 넣어주면 된다.
 WEBHOOK_SECRET : WEBHOOK을 사용하는데 키이다. 간단하게 DB의 시크릿 키와 동일하다.
 LOG_LEVEL : LOG를 어느 레벨까지 보여줄 것인지에 대한 설정이다.
-WEBHOOK_PROXY_URL : 위에서 설명한 프록시 서버의 주소를 입력해준다.
+WEBHOOK_PROXY_URL : 위에서 설명한 프록시 서버의 주소를 입력해준다.   
 
 
 ## history
