@@ -6,17 +6,6 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    steps:
-    - name: Create Link in PR body
-      uses: Im-D/Im-Bot/packages/pr-supporter@master
-      with:
-        myToken: ${{ secrets.GITHUB_TOKEN }}
-        
-    - name: Add Reviewer
-      uses: Im-D/Im-Bot/packages/pr-reviewer@master
-      with:
-        myToken: ${{ secrets.GITHUB_TOKEN }}
-    
     - name: Create Link in Repo body
       uses: Im-D/Im-Bot/packages/update-readme@update-readme
       with:
