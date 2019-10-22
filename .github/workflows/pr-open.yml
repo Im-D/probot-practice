@@ -6,6 +6,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    steps:
     - name: Create Link in Repo body
       uses: Im-D/Im-Bot/packages/update-readme@update-readme
       with:
