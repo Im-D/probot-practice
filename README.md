@@ -69,6 +69,8 @@ WEBHOOK_PROXY_URL : 위에서 설명한 프록시 서버의 주소를 입력해�
 
 - [x] SeonHyungJo : [README](https://github.com/Im-D/probot-practice/blob/action-test/README.md)
 
+- [x] SeonHyungJo : [README](https://github.com/Im-D/probot-practice/blob/action-test/README.md)
+
 
 
 ## License
