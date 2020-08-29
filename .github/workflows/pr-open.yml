@@ -1,0 +1,14 @@
+name: "Auto PR setting"
+on: 
+  pull_request:
+    types: [opened]
+      
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Create Link in Repo body
+      uses: Im-D/Im-Bot/packages/pr-supporter@issue2
+      with:
+        myToken: ${{ secrets.GITHUB_TOKEN }}
+        linkLocTarget: '## history'
